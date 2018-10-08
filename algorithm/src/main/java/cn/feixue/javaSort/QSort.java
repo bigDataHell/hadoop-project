@@ -1,4 +1,4 @@
-package cn.feixue.QuickSort;
+package cn.feixue.javaSort;
 
 import java.util.Arrays;
 
@@ -10,6 +10,7 @@ public class QSort {
     public static void main(String[] args) {
 
         int[] arr = {4,3,6,45,2,1,89,-1,9,0};
+
 
         qSort(arr);
 
@@ -68,5 +69,7 @@ public class QSort {
         // 对key右边的排序
         qSort(arr, i + 1, high);
     }
+
+
 
 }
