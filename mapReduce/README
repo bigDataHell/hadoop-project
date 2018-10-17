@@ -1,0 +1,8 @@
+
+
+文档说明：
+
+com.feixue.mapReudce.trafficStatistics : 手机流量统计
+
+    FlowSumSort ： 按照总的流量数据进行排序并且分区
+    ProvincePartitioner ： 自定义分区组件
