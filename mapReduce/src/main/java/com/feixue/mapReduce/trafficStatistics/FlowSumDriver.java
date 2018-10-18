@@ -1,4 +1,4 @@
-package com.feixue.mapReudce.trafficStatistics;
+package com.feixue.mapReduce.trafficStatistics;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -39,9 +39,7 @@ public class FlowSumDriver {
 
 
         //指定本次mr 输入的数据路径 和最终输出结果存放在什么位置
-       // FileInputFormat.setInputPaths(job, "mapReduce\\src\\main\\resources\\HTTP_20130313143750.dat");
         FileInputFormat.setInputPaths(job, "D:\\HTTP_20130313143750.dat");
-        //‪D:\HTTP_20130313143750.dat
         FileOutputFormat.setOutputPath(job,new Path("D:\\flowsum\\output"));
 
 //        job.submit();

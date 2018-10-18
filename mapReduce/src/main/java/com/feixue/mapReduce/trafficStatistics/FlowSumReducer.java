@@ -1,6 +1,6 @@
-package com.feixue.mapReudce.trafficStatistics;
+package com.feixue.mapReduce.trafficStatistics;
 
-import com.sun.tools.javac.comp.Flow;
+
 import org.apache.hadoop.mapreduce.Reducer;
 import org.apache.hadoop.io.Text;
 

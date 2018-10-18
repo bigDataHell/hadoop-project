@@ -1,4 +1,4 @@
-package com.feixue.mapReudce.trafficStatistics;
+package com.feixue.mapReduce.trafficStatistics;
 
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -15,7 +15,7 @@ import java.io.IOException;
  * @Author ：feixue
  * @Data : 19:02 2018/10/17
  */
-public class FlowSumMapper extends Mapper<LongWritable,Text,FlowBean,Text> {
+public class FlowSumMapper extends Mapper<LongWritable,Text,Text,FlowBean> {
 
     private FlowBean v = new FlowBean();
 
@@ -42,6 +42,6 @@ public class FlowSumMapper extends Mapper<LongWritable,Text,FlowBean,Text> {
         // 再FlowBean中添加一set方法
         v.set(upFlow,downFlow);
 
-        context.write(v,k);
+        context.write(k,v);
     }
 }

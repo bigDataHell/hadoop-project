@@ -1,6 +1,6 @@
-package com.feixue.mapReudce.trafficStatistics.partitioner;
+package com.feixue.mapReduce.trafficStatistics.partitioner;
 
-import com.feixue.mapReudce.trafficStatistics.FlowBean;
+import com.feixue.mapReduce.trafficStatistics.FlowBean;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
 

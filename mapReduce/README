@@ -2,7 +2,67 @@
 
 文档说明：
 
-com.feixue.mapReudce.trafficStatistics : 手机流量统计
+手机流量统计
 
-    FlowSumSort ： 按照总的流量数据进行排序并且分区
-    ProvincePartitioner ： 自定义分区组件
+            com.feixue.mapReudce.trafficStatistics : 手机流量统计
+
+            FlowSumSort ： 按照总的流量数据进行排序并且分区
+            ProvincePartitioner ： 自定义分区组件
+
+combiner
+
+    combiner 是 MR 程序中 Mapper 和 Reducer 之外的一种组件
+        combiner 组件的父类就是 Reducer
+        combiner 和 reducer 的区别在于运行的位置：
+        combiner 是在每一个 maptask 所在的节点运行
+        reducer 是接收全局所有 Mapper 的输出结果；
+    combiner 的意义就是对每一个 maptask 的输出进行局部汇总，以减小网络传输量,具体实现步骤：
+
+        1)自定义一个 combiner 继承 Reducer，重写 reduce 方法
+        2)中设置： job.setCombinerClass(CustomCombiner.class)
+
+
+TopN :
+
+
+    以逗号作为分隔符，每一列分别为orderid,userid,payment,productid，现在需要按照payment从大到小求出TopN，
+    比如top10，其输出结果应该如下：
+
+    1   9000
+    2   2000
+    3   1234
+    4   1000
+    5   910
+    6   701
+    7   490
+    8   281
+    9   100
+    10  28
+
+    此外，TopN中的N应该是动态的，由输入的参数来决定，根据引写一个MapReduce程序来进行处理
+
+
+求两个人的共同好友算法 :
+
+
+        需求
+        以下是 qq 的好友列表数据，冒号前是一个用户，冒号后是该用户的所有好友（数据中
+        的好友关系是单向的）
+            A:B,C,D,F,E,O
+            B:A,C,E,K
+            C:F,A,D,I
+            D:A,E,F,L
+            E:B,C,D,M,L
+            F:A,B,C,D,E,O,M
+            G:A,C,D,E,F
+            H:A,C,D,E,O
+            I:A,O
+            J:B,O
+            K:A,C,D
+            L:D,E,F
+            M:E,F,G
+            O:A,H,I,J
+        求出哪些人两两之间有共同好友，及他俩的共同好友都有谁？
+
+
+

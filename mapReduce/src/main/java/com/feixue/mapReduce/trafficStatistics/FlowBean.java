@@ -1,6 +1,5 @@
-package com.feixue.mapReudce.trafficStatistics;
+package com.feixue.mapReduce.trafficStatistics;
 
-import org.apache.hadoop.io.Writable;
 import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
@@ -104,8 +103,8 @@ public class FlowBean implements WritableComparable<FlowBean> {
     @Override
     public int compareTo(FlowBean o) {
         // 按照总流量排序的倒序排序
-        //return this.sumFlow > o.sumFlow ? -1 : 1;
+        return this.sumFlow > o.sumFlow ? -1 : 1;
         // 正序
-        return this.sumFlow > o.sumFlow ? 1 : -1;
+        //return this.sumFlow > o.sumFlow ? 1 : -1;
     }
 }
